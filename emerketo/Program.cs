@@ -1,5 +1,7 @@
 using emerketo.Contexts;
 using emerketo.Helpers._Services;
+using emerketo.Helpers.Factories;
+using emerketo.Helpers.Services;
 using emerketo.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Identity")));
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UserService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {
@@ -17,6 +20,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = true;
 })
+    .AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>()
     .AddEntityFrameworkStores<IdentityContext>();
 
 

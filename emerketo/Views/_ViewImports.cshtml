@@ -2,6 +2,8 @@
 @using Microsoft.AspNetCore.Identity;
 @using emerketo.Models.Identity;
 @using emerketo.Models.ViewModels;
+@using emerketo.Helpers.Services;
 
 @inject SignInManager<AppUser> signInManager
 @inject UserManager<AppUser> userManager
+@inject UserService userService

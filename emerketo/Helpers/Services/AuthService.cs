@@ -4,13 +4,13 @@ using emerketo.Models.Identity;
 using emerketo.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
+
 
 namespace emerketo.Helpers._Services;
 
 public class AuthService
 {
-
+   
     private readonly SignInManager<AppUser> _signInManager;
     private readonly UserManager<AppUser> _userManager;
     private readonly IdentityContext _context;
@@ -31,6 +31,12 @@ public class AuthService
             AppUser appUser = model;
 
             var roleName = "user";
+
+            if (!await _roleManager.Roles.AnyAsync())
+            {
+                await _roleManager.CreateAsync(new IdentityRole("admin"));
+                await _roleManager.CreateAsync(new IdentityRole("user"));
+            }
 
             if (!await _userManager.Users.AnyAsync())
                 roleName = "admin";
@@ -60,11 +66,5 @@ public class AuthService
             return result.Succeeded;
         }
         catch { return false; }
-    }
-
-    public async Task<bool> SignOutAsync(ClaimsPrincipal user)
-    {
-        await _signInManager.SignOutAsync();
-        return _signInManager.IsSignedIn(user);
     }
 }

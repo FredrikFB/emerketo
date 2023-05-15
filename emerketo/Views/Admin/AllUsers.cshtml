@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Users";
+
+    var users = await userService.GetAllWhitRolesAsync();
+
+}
+
+<div>
+    <div>
+        User Edit
+        @*<a asp-controller="user" asp-action="index">User handler</a>*@
+    </div>
+
+    @if(users != null)
+    {
+        foreach(var (user, roles) in users)
+        {
+            <div class="mb-3">
+                <div>@user.Id</div>
+                <div>@user.FirstName</div>
+                <div>@user.LastName</div>
+                <div>@user.Email</div>
+                <div>
+                    @foreach (var role in roles)
+                    {
+                        <span>@role</span>
+                    }
+                </div>
+                <a asp-action="rolechange" asp-controller="admin" asp-route-id="@user.Id">Change Role</a>
+            </div>   
+        }
+    }
+</div>
