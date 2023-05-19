@@ -11,8 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Identity")));
+builder.Services.AddDbContext<ProductContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Products")));
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<ProductService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {
@@ -25,6 +27,11 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var productService = scope.ServiceProvider.GetRequiredService<ProductService>();
+    await productService.CreateCategoriesAsync();
+}
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();

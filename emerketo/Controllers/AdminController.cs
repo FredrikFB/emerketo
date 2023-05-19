@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using emerketo.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace emerketo.Controllers
@@ -15,6 +16,20 @@ namespace emerketo.Controllers
 
         public IActionResult AllUsers()
         {
+            return View();
+        }
+        public IActionResult RegisterProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegisterProduct(ProductRegistrationViewModel viewModel)
+        {
+            if(ModelState.IsValid)
+            {
+
+            }
             return View();
         }
 
