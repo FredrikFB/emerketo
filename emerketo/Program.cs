@@ -17,6 +17,7 @@ builder.Services.AddDbContext<ProductContext>(x => x.UseSqlServer(builder.Config
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<ContactService>();
 
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>

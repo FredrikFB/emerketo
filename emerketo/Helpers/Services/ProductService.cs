@@ -38,25 +38,5 @@ public class ProductService
         return categories;
     }
 
-    public async Task<bool> CreateCategoriesAsync()
-    {
-        if (!_context.Categories.Any()) 
-        {
-            var newCategory = new CategoryEntity { CategoryName = "new" };
-            _context.Categories.Add(newCategory);
-
-            var popularCategory = new CategoryEntity { CategoryName = "popular" };
-            _context.Categories.Add(popularCategory);
-
-            var featuredCategory = new CategoryEntity { CategoryName = "featured" };
-            _context.Categories.Add(featuredCategory);
-
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-        else { return false; }
-
-    }
 
 }
