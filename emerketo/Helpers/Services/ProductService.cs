@@ -22,7 +22,6 @@ public class ProductService
         {
             ProductEntity productEntity = viewModel;
             
-
             _context.Products.Add(productEntity);
             await _context.SaveChangesAsync();
             return true;

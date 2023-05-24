@@ -1,14 +1,20 @@
-﻿using emerketo.Models.ViewModels;
+﻿using emerketo.Helpers.Services;
+using emerketo.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace emerketo.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
-         
+        private readonly ProductService _productService;
 
-        [Authorize(Roles = "admin")]
+        public AdminController(ProductService productService)
+        {
+            _productService = productService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -24,11 +30,12 @@ namespace emerketo.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegisterProduct(ProductRegistrationViewModel viewModel)
+        public async Task<IActionResult> RegisterProduct(ProductRegistrationViewModel viewModel)
         {
             if(ModelState.IsValid)
             {
-
+                if ( await _productService.CreateAsync(viewModel))
+                    return RedirectToAction("Index", "Products");
             }
             return View();
         }

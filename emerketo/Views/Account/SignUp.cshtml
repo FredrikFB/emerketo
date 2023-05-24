@@ -14,31 +14,31 @@
 
             <div class="firstname form-group">
                 <label asp-for="FirstName"></label>
-                <input asp-for="FirstName" />
+                <input asp-for="FirstName" onkeyup="validateText(event)"/>
                 <small><span asp-validation-for="FirstName" class="error"></span></small>
             </div>
 
             <div class="lastname form-group">
                 <label asp-for="LastName"></label>
-                <input asp-for="LastName" />
+                <input asp-for="LastName" onkeyup="validateText(event)" />
                 <small><span asp-validation-for="LastName" class="error"></span></small>
             </div>
 
             <div class="streetname form-group">
                 <label asp-for="StreetName"></label>
-                <input asp-for="StreetName" />
+                <input asp-for="StreetName" onkeyup="validateText(event)" />
                 <small><span asp-validation-for="StreetName" class="error"></span></small>
             </div>
 
             <div class="postalcode form-group">
                 <label asp-for="PostalCode"></label>
-                <input asp-for="PostalCode" />
+                <input asp-for="PostalCode" onkeyup="validateText(event)" />
                 <small><span asp-validation-for="PostalCode" class="error"></span></small>
             </div>
 
             <div class="city form-group">
                 <label asp-for="City"></label>
-                <input asp-for="City" />
+                <input asp-for="City" onkeyup="validateText(event)" />
                 <small><span asp-validation-for="City" class="error"></span></small>
             </div>
 
@@ -50,19 +50,19 @@
 
             <div class="company form-group">
                 <label asp-for="Company"></label>
-                <input asp-for="Company" />
+                <input asp-for="Company" onkeyup="validateText(event)" />
                 <small><span asp-validation-for="Company" class="error"></span></small>
             </div>
 
             <div class="email form-group">
                 <label asp-for="Email"></label>
-                <input asp-for="Email" />
+                <input asp-for="Email" onkeyup="validateEmail(event)" />
                 <small><span asp-validation-for="Email" class="error"></span></small>
             </div>
 
             <div class="password form-group">
                 <label asp-for="Password"></label>
-                <input asp-for="Password" />
+                <input asp-for="Password" onkeyup="validatePassword(event)" />
                 <small><span asp-validation-for="Password" class="error"></span></small>
             </div>
 

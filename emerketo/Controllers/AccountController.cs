@@ -29,11 +29,11 @@ namespace emerketo.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp(UserSignUpViewModel model)
+        public async Task<IActionResult> SignUp(UserSignUpViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                if (await _authService.SignUpAsync(model))
+                if (await _authService.SignUpAsync(viewModel))
                     return RedirectToAction("SignIn");
 
                 ModelState.AddModelError("", "A user with the same email already exists");

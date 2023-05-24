@@ -14,7 +14,7 @@ public class ProductRegistrationViewModel
 
     [Required(ErrorMessage = "Du måste ange en kategori")]
     [Display(Name = "Kategori")]
-    public List<int> Categories { get; set; } = null!;
+    public List<int> Categories { get; set; } = new List<int>();
 
     [Required(ErrorMessage = "Du måste ange ett pris")]
     [Display(Name = "Productpris")]

@@ -43,10 +43,5 @@ public class UserService
         return result;
     }
 
-    //public async Task<AppUser> UpdateUserAsync(AppUser model)
-    //{
-    //    _context.Users.Update(model);
-    //    await _context.SaveChangesAsync();
-    //    return model;
-    //}
+
 }

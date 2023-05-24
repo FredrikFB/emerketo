@@ -17,13 +17,13 @@
                     E-mail *
                     <a asp-action="signup" asp-controller="account">Dont't have an Account yet?</a>
                 </label>
-                <input asp-for="Email" />
+                <input asp-for="Email" onkeyup="validateEmail(event)" />
                 <small><span asp-validation-for="Email" class="error"></span></small>
             </div>
 
             <div class="password form-group">
                 <label asp-for="Password"></label>
-                <input asp-for="Password" />
+                <input asp-for="Password" onkeyup="validatePassword(event)" />
                 <small><span asp-validation-for="Password" class="error"></span></small>
             </div>
 

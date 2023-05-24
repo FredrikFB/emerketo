@@ -23,7 +23,7 @@
                 <div>
                     @foreach (var role in roles)
                     {
-                        <span>@role</span>
+                        <span class="me-2">@role</span>
                     }
                 </div>
                 <a asp-action="rolechange" asp-controller="admin" asp-route-id="@user.Id">Change Role</a>
