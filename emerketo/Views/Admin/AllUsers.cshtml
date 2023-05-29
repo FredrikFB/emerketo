@@ -6,28 +6,31 @@
 }
 
 <div>
-    <div>
+@*    <div>
         User Edit
-        @*<a asp-controller="user" asp-action="index">User handler</a>*@
-    </div>
+        <a asp-controller="user" asp-action="index">User handler</a>
+    </div>*@
 
     @if(users != null)
     {
-        foreach(var (user, roles) in users)
-        {
-            <div class="mb-3">
-                <div>@user.Id</div>
-                <div>@user.FirstName</div>
-                <div>@user.LastName</div>
-                <div>@user.Email</div>
-                <div>
-                    @foreach (var role in roles)
-                    {
-                        <span class="me-2">@role</span>
-                    }
-                </div>
-                <a asp-action="rolechange" asp-controller="admin" asp-route-id="@user.Id">Change Role</a>
-            </div>   
-        }
+        <div class="users container">
+            <h1>Users</h1>
+            @foreach(var (user, roles) in users)
+            {
+                <div class="mb-3">
+                    <div>@user.Id</div>
+                    <div>Firstname: @user.FirstName</div>
+                    <div>Lastname: @user.LastName</div>
+                    <div>Email: @user.Email</div>
+                    <div>
+                        @foreach (var role in roles)
+                        {
+                            <span class="me-2">Role: @role</span>
+                        }
+                    </div>
+                    @*<a asp-action="rolechange" asp-controller="admin" asp-route-id="@user.Id">Change Role</a>*@
+                </div>   
+            }
+        </div>
     }
 </div>

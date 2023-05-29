@@ -23,6 +23,11 @@ public class ContactFormViewModel
     [Display(Name = "Message")]
     public string Message { get; set; } = null!;
 
+    [Display(Name = "Save my name, email in this browser for the next time I comment.")]
+    [Required(ErrorMessage = "You must agree to the terms and conditions")]
+    public bool RememberMe { get; set; } = false;
+
+
     public static implicit operator ContactFormEntity(ContactFormViewModel viewModel)
     {
         return new ContactFormEntity

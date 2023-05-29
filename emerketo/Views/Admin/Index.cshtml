@@ -2,10 +2,16 @@
     ViewData["Title"] = "Backoffice";
 }
 
-<div>
-    <div>
-        Backoffice
-        <a asp-controller="admin" asp-action="allusers">User handler</a>
-        <a asp-controller="admin" asp-action="registerproduct">Register Product</a>
+<section class="backoffice">
+    <div class="container">
+        <div class="content">
+            <h1>BACKOFFICE</h1>
+        </div>
+        <div class="links">
+            <button class="btn-theme"><a class="link" asp-controller="admin" asp-action="allusers">User handler</a></button>
+            <button class="btn-theme"><a class="link" asp-controller="admin" asp-action="registerproduct">Register Product</a></button>
+        </div>
     </div>
-</div>
+
+</section>
+

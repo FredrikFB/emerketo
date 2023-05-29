@@ -1,9 +1,9 @@
-﻿@*@inject ShowcaseService showcaseService
+﻿@inject ShowcaseService showcaseService
 @{
     var showcase = showcaseService.GetLatest();
-}*@
+}
 
-@*@if(showcase != null)
+@if(showcase != null)
 {
     <section class="showcase">
         <div class="container">
@@ -23,6 +23,6 @@
             </div>
         </div>
     </section>
-}*@
+}
 
 

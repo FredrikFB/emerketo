@@ -37,6 +37,30 @@ public class ProductService
         var categories = await _context.Categories.ToListAsync();
         return categories;
     }
+    public async Task<IEnumerable<GridCollectionItemViewModel>> GetAllProductsAsync()
+    {
+        var products = await _context.Products.ToListAsync();
 
+        return products.Select(product => (GridCollectionItemViewModel)product);
+    }
+
+    public async Task<ProductEntity?> GetProductAsync(int id)
+    {
+        return await _context.Products.FindAsync(id);
+    }
+
+    public async Task<IEnumerable<ProductEntity>> GetNumberOfProductAsync(int value)
+    {
+        return await _context.Products.Take(value).ToListAsync();
+    }
+
+    public async Task<IEnumerable<GridCollectionItemViewModel>> GetNumberOfProductsAsync(int value)
+    {
+        var products = await _context.Products
+            .Take(value)
+            .ToListAsync();
+
+        return products.Select(product => (GridCollectionItemViewModel)product);
+    }
 
 }

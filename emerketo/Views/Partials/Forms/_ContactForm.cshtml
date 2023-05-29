@@ -1,38 +1,50 @@
-﻿<section class="contact-form">
+﻿@model ContactFormViewModel
+
+
+<section class="contact-form">
     <div class="container">
         <div class="title">Write something</div>
 
-        <form novalidate>
+        <form method="post" novalidate>
+
             <div class="name form-group">
-                <label for="name">Your Name*</label>
-                <input id="name" type="text" class="invalid" onkeyup="validateText(event)">
-                <span class="error">Your name is required</span>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" onkeyup="validateText(event)" />
+                <small><span asp-validation-for="Name" class="error"></span></small>
             </div>
+
             <div class="email form-group">
-                <label for="email">Your Email*</label>
-                <input id="email" type="text" class="invalid" onkeyup="validateEmail(event)">
-                <span class="error">Your email is required</span>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" onkeyup="validateEmail(event)" />
+                <small><span asp-validation-for="Email" class="error"></span></small>
             </div>
+
             <div class="phoneNumber form-group">
-                <label for="phone">Phone Number (optional)</label>
-                <input id="phone" type="text">
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" onkeyup="validateText(event)" />
+                <small><span asp-validation-for="Phone" class="error"></span></small>
             </div>
+
             <div class="companyName form-group">
-                <label for="company">Company (optional)</label>
-                <input id="company" type="text">
+                <label asp-for="Company"></label>
+                <input asp-for="Company" onkeyup="validateText(event)" />
+                <small><span asp-validation-for="Company" class="error"></span></small>
             </div>
+
             <div class="message form-group">
-                <label for="message">Message*</label>
-                <textarea id="message" class="invalid" onkeyup="validateText(event)"></textarea>
-                <span class="error">Message is required</span>
+                <label asp-for="Message"></label>
+                <textarea asp-for="Message"  onkeyup="validateText(event)"></textarea>
+                <small><span asp-validation-for="Message" class="error"></span></small>
             </div>
+
             <div class="terms form-checkbox-group">
                 <label class="custom-checkbox">
-                    Save my name, email in the this browser for the next time I comment.
-                    <input type="checkbox" checked="checked">
+                    <label asp-for="RememberMe"></label>
+                    <input asp-for="RememberMe">
                     <span class="checkmark"></span>
                 </label>
             </div>
+
             <button class="btn-theme">Submit</button>
         </form>
     </div>

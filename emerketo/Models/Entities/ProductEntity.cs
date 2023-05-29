@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using emerketo.Models.ViewModels;
 
 namespace emerketo.Models.Entities
 {
@@ -21,5 +22,6 @@ namespace emerketo.Models.Entities
         public ICollection<ProductImgEntity>? Images { get; set; } = new HashSet<ProductImgEntity>();
 
         public ICollection<ProductCategoryEntity> Categories { get; set; } = new HashSet<ProductCategoryEntity>();
+
     }
 }

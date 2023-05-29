@@ -1,0 +1,126 @@
+.details {
+    margin-top: 30px;
+    .container {
+
+        @include lg {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+
+    .image-container {
+        max-width: 500px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .detail-info {
+        max-width: 550px;
+        margin-left: 20px;
+
+        .title {
+            font-weight: $font-weight-medium;
+            font-family: $font-poppins;
+            font-size: 24px;
+        }
+
+        .info-item {
+            padding: 10px 0;
+            border-bottom: 0.2px solid $color-dark-5;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+
+            .reviews {
+                margin-left: 10px;
+            }
+        }
+
+
+
+        .price {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: $font-weight-bold;
+        }
+
+        .add-amount {
+            margin: 15px 0;
+
+            @include md {
+                display: flex;
+            }
+
+            .amount {
+                margin-right: 30px;
+
+                .current-amount {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
+
+            .btn-theme {
+                margin-top: 10px;
+
+                @include lg {
+                    margin-top: 0;
+                }
+
+                i {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        .colors {
+            display: flex;
+            margin-top: 10px;
+
+            .circle1 {
+                background-color: #FA3150;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                margin-right: 2px;
+            }
+
+            .circle2 {
+                background-color: #F9C936;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                margin-right: 2px;
+            }
+
+            .circle3 {
+                background-color: #92B8B9;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                margin-right: 2px;
+            }
+
+            p {
+                margin-left: 20px
+            }
+        }
+
+        .btn-white {
+            margin-top: 10px;
+            border: 0.3px;
+        }
+
+        .category {
+            margin-top: 10px;
+            border-bottom: 1px solid $color-dark-5;
+            padding-bottom: 10px;
+        }
+    }
+}

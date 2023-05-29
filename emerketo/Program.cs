@@ -18,6 +18,7 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<ContactService>();
+builder.Services.AddScoped<ShowcaseService>();
 
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
@@ -35,11 +36,6 @@ builder.Services.ConfigureApplicationCookie(x =>
 
 
 var app = builder.Build();
-//using (var scope = app.Services.CreateScope())
-//{
-//    var productService = scope.ServiceProvider.GetRequiredService<ProductService>();
-//    await productService.CreateCategoriesAsync();
-//}
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
