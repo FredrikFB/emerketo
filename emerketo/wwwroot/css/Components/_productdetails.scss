@@ -39,6 +39,7 @@
 
             .reviews {
                 margin-left: 10px;
+                padding-top: 4px;
             }
         }
 
@@ -50,14 +51,14 @@
             font-weight: $font-weight-bold;
         }
 
-        .add-amount {
+        .add-number {
             margin: 15px 0;
 
             @include md {
                 display: flex;
             }
 
-            .amount {
+            .number {
                 margin-right: 30px;
 
                 .current-amount {

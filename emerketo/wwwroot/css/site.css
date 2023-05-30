@@ -1138,36 +1138,37 @@ footer .container {
 }
 .details .detail-info .rating .reviews {
   margin-left: 10px;
+  padding-top: 4px;
 }
 .details .detail-info .price {
   margin-top: 10px;
   font-size: 20px;
   font-weight: 700;
 }
-.details .detail-info .add-amount {
+.details .detail-info .add-number {
   margin: 15px 0;
 }
 @media (min-width: 768px) {
-  .details .detail-info .add-amount {
+  .details .detail-info .add-number {
     display: flex;
   }
 }
-.details .detail-info .add-amount .amount {
+.details .detail-info .add-number .number {
   margin-right: 30px;
 }
-.details .detail-info .add-amount .amount .current-amount {
+.details .detail-info .add-number .number .current-amount {
   margin-left: 10px;
   margin-right: 10px;
 }
-.details .detail-info .add-amount .btn-theme {
+.details .detail-info .add-number .btn-theme {
   margin-top: 10px;
 }
 @media (min-width: 992px) {
-  .details .detail-info .add-amount .btn-theme {
+  .details .detail-info .add-number .btn-theme {
     margin-top: 0;
   }
 }
-.details .detail-info .add-amount .btn-theme i {
+.details .detail-info .add-number .btn-theme i {
   margin-left: 20px;
 }
 .details .detail-info .colors {
